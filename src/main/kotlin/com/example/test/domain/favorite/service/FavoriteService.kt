@@ -43,4 +43,9 @@ class FavoriteService @Autowired constructor(
         if (favoriteRepository.existsByNickname(request.nickname))
             throw UserNicknameAlreadyExistsFavoriteException(request.nickname)
     }
+    
+    fun test() =
+        favoriteRepository.findAll()
+        
+    
 }

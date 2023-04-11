@@ -2,9 +2,13 @@ package com.example.test.domain.user.entity
 
 import com.example.test.domain.base.BaseEntity
 import com.example.test.domain.favorite.entity.Favorite
+import com.fasterxml.jackson.annotation.JsonIdentityInfo
+import com.fasterxml.jackson.annotation.JsonManagedReference
+import com.fasterxml.jackson.annotation.ObjectIdGenerators
 import javax.persistence.*
 
 // user 는 기본 예약어라 Entity 이름을 user로 하면 Exception 발생 따라서 users 로 변경
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property = "id")
 @Entity(name = "member")
 class Member(
     @Id
@@ -36,7 +40,4 @@ class Member(
     var alcohol: Alcohol,
     @Enumerated(EnumType.STRING)
     var smoke: Smoke,
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "memberId", insertable = false, updatable = false)
-    var favorites: MutableList<Favorite>
 ) : BaseEntity()
