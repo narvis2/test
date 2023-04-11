@@ -21,8 +21,7 @@ fun MemberRequest.toUserEntity(): Member = Member(
     job = this.job,
     religon = Religion.valueOf(this.religion),
     alcohol = Alcohol.valueOf(this.alcohol),
-    smoke = Smoke.valueOf(this.smoke),
-    favorites = arrayListOf()
+    smoke = Smoke.valueOf(this.smoke)
 )
 
 fun Member.toUserResponse(): MemberResponse = MemberResponse(
@@ -57,6 +56,5 @@ fun Member.toUserInfoResponse(): MemberInfoResponse = MemberInfoResponse(
     job = this.job.value,
     religion = this.religon.value,
     alcohol = this.alcohol.value,
-    smoke = this.smoke.value,
-    favorite = this.favorites
+    smoke = this.smoke.value
 )

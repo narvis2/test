@@ -2,8 +2,10 @@ package com.example.test.controller
 
 import com.example.test.common.ApiResponse
 import com.example.test.domain.favorite.dto.FavoriteRequest
+import com.example.test.domain.favorite.entity.Favorite
 import com.example.test.domain.favorite.service.FavoriteService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -25,4 +27,7 @@ class FavoriteApiController @Autowired constructor(
         favoriteService.saveFavorite(request);
         return ApiResponse.success()
     }
+    
+    @GetMapping("/favorites")
+    fun getAll(): ApiResponse<List<Favorite>> = ApiResponse.success(favoriteService.test())
 }

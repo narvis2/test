@@ -17,6 +17,5 @@ data class MemberInfoResponse(
     val job: String,
     val religion: String,
     val alcohol: String,
-    val smoke: String,
-    val favorite: List<Favorite>
+    val smoke: String
 )
